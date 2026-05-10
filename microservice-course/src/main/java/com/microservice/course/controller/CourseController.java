@@ -1,7 +1,7 @@
 package com.microservice.course.controller;
 
 import com.microservice.course.entities.Course;
-import com.microservice.course.service.CourseServiceImpl;
+import com.microservice.course.service.ICourseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/course")
 public class CourseController {
 
-    private CourseServiceImpl courseService;
+    private final ICourseService courseService;
 
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
@@ -28,6 +28,11 @@ public class CourseController {
     @GetMapping("/search/{id}")
     public ResponseEntity<?> findCourseById(@PathVariable Long id){
         return ResponseEntity.ok(courseService.findById(id));
+    }
+
+    @GetMapping("/search-student/{idCourse}")
+    public ResponseEntity<?> findStudentByIdCourse(@PathVariable Long idCourse){
+        return ResponseEntity.ok(courseService.findStudentByIdCourse(idCourse));
     }
 
 }
