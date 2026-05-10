@@ -1,7 +1,7 @@
 package com.microservice.student.controller;
 
 import com.microservice.student.entities.Student;
-import com.microservice.student.service.StudentServiceImpl;
+import com.microservice.student.service.IStudentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/student")
 public class StudentController {
 
-    private StudentServiceImpl studentService;
+
+    private final IStudentService studentService;
 
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)

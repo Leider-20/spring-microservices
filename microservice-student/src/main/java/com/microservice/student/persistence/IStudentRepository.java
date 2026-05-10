@@ -12,7 +12,7 @@ public interface IStudentRepository extends CrudRepository<Student, Long> {
 
 
     @Query("SELECT s FROM Student s WHERE s.courseId = :idCourse")
-    List<Student> findAllStudent(Long courseId);
+    List<Student> findAllStudent(Long idCourse);
 
     //List<Student> findAllByCourseId(Long idCourse);
 }

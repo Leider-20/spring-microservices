@@ -11,5 +11,5 @@ import java.util.List;
 public interface StudentClient {
 
     @GetMapping("/search-ny-course/{idCourse}")
-    List<StudentDTO> findStudentByIdCourse(@PathVariable String idCourse);
+    List<StudentDTO> findStudentByIdCourse(@PathVariable Long idCourse);
 }
